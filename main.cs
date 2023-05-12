@@ -117,7 +117,6 @@ namespace Mapa
         {
             int newPlayerX = playerX;
             int newPlayerY = playerY;
-            bool isPath;
 
             switch (e.KeyCode)
             {
@@ -125,42 +124,30 @@ namespace Mapa
                     if (playerX > 0)
                     {
                         newPlayerX = --playerX;
-                        isPath = mapA[newPlayerX, newPlayerY];
-                        if (isPath)
-                            newPlayerX = playerX; // Revert back the change if it's not a valid move
                     }
                     break;
                 case Keys.Right:
                     if (playerX < cx - 1)
                     {
                         newPlayerX = ++playerX;
-                        isPath = mapA[newPlayerX, newPlayerY];
-                        if (isPath)
-                            newPlayerX = playerX; // Revert back the change if it's not a valid move
                     }
                     break;
                 case Keys.Up:
                     if (playerY > 6 || playerX>5)
                     {
                         newPlayerY = --playerY;
-                        isPath = mapA[newPlayerX, newPlayerY];
-                        if (isPath)
-                            newPlayerY = playerY; // Revert back the change if it's not a valid move
                     }
                     break;
                 case Keys.Down:
                     if (playerY < cy - 1)
                     {
                         newPlayerY = ++playerY;
-                        isPath = mapA[newPlayerX, newPlayerY];
-                        if (isPath)
-                            newPlayerY = playerY; // Revert back the change if it's not a valid move
                     }
                     break;
             }
 
-            playerX = newPlayerX; // Update player's X position
-            playerY = newPlayerY; // Update player's Y position
+            playerX = newPlayerX; 
+            playerY = newPlayerY; 
 
             Invalidate();
         }
